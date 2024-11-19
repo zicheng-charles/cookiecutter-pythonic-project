@@ -17,8 +17,12 @@ repos:
     hooks:
       - id: isort
         args:
-          - --check-only
-          - --diff
+          - "--profile=black"
+  - repo: https://github.com/ambv/black
+    rev: 21.5b1
+    hooks:
+      - id: black
+        language_version: "^{{ cookiecutter.python_version }}"
   - repo: https://github.com/PyCQA/pylint
     rev: v2.17.1
     hooks:
@@ -27,3 +31,4 @@ repos:
         entry: pylint
         language: system
         types: [ python ]
+  
